@@ -85,18 +85,22 @@
       margin-bottom: 2rem;
     }
 
-    .hero button {
+    /* --- ESTILO DE BOTÓN MODIFICADO --- */
+    .hero-button {
       background-color: var(--verde-premium);
-      color: white;
+      color: white !important; /* !important para forzar el color en el enlace */
       border: none;
       padding: 0.8rem 2rem;
       font-size: 1rem;
       border-radius: 25px;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      text-decoration: none; /* Quitar subrayado del enlace */
+      display: inline-block; /* Para que respete el padding */
+      margin-top: 2rem; /* Espacio sobre el botón */
     }
 
-    .hero button:hover {
+    .hero-button:hover {
       background-color: var(--verde-eco);
     }
 
@@ -168,18 +172,17 @@
     <img src="web/logo_web.png" alt="Logo KAKAFE" class="hero-logo" style="width:200px; margin-bottom:0;">
     <h1>Kopi Luwak</h1>
     <p>Sostenible de Vietnam</p>
-    <button id="btnDescubrir">Descubrir</button>
-
-    <!-- Contenedor del video de YouTube -->
-    <div id="videoContainer" style="display:none; margin-top:2rem; text-align:center;">
+    <div id="videoContainer" style="margin-top:2rem; text-align:center;">
       <iframe id="videoYT" width="560" height="315"
-        src=""
+        src="https://www.youtube.com/embed/cy3NJ8Mg--g"
         title="KAKAFE video"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
       </iframe>
     </div>
+
+    <a href="tienda.html" class="hero-button">Ver productos</a>
   </section>
 
   <section class="info-section">
@@ -229,23 +232,7 @@
     document.getElementById(`texto-${seccion}`).style.display = 'block';
   }
 
-  // --- Mostrar/ocultar video de YouTube ---
-  const btn = document.getElementById('btnDescubrir');
-  const videoContainer = document.getElementById('videoContainer');
-  const video = document.getElementById('videoYT');
-
-  btn.addEventListener('click', () => {
-    if (videoContainer.style.display === 'none') {
-      // Enlace al video de YouTube
-      video.src = "https://www.youtube.com/embed/cy3NJ8Mg--g?autoplay=1";
-      videoContainer.style.display = 'block';
-      btn.textContent = "Ocultar video";
-    } else {
-      video.src = "";
-      videoContainer.style.display = 'none';
-      btn.textContent = "Descubrir";
-    }
-  });
+  // --- El script para mostrar/ocultar el video ha sido eliminado ---
   </script>
 </body>
 </html>
