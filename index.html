@@ -168,12 +168,15 @@
     <p>Sostenible de Vietnam</p>
     <button id="btnDescubrir">Descubrir</button>
 
-    <!-- Contenedor del video local -->
+    <!-- Contenedor del video de YouTube -->
     <div id="videoContainer" style="display:none; margin-top:2rem; text-align:center;">
-      <video id="videoLocal" width="560" height="315" controls>
-        <source src="web/kakafe_add.mp4" type="video/mp4">
-        Tu navegador no soporta la reproducción de video.
-      </video>
+      <iframe id="videoYT" width="560" height="315"
+        src=""
+        title="KAKAFE video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
     </div>
   </section>
 
@@ -224,19 +227,19 @@
     document.getElementById(`texto-${seccion}`).style.display = 'block';
   }
 
-  // --- Mostrar/ocultar video local ---
+  // --- Mostrar/ocultar video de YouTube ---
   const btn = document.getElementById('btnDescubrir');
   const videoContainer = document.getElementById('videoContainer');
-  const video = document.getElementById('videoLocal');
+  const video = document.getElementById('videoYT');
 
   btn.addEventListener('click', () => {
     if (videoContainer.style.display === 'none') {
+      // Enlace al video de YouTube
+      video.src = "https://www.youtube.com/embed/cy3NJ8Mg--g?autoplay=1";
       videoContainer.style.display = 'block';
       btn.textContent = "Ocultar video";
-      video.play();
     } else {
-      video.pause();
-      video.currentTime = 0;
+      video.src = "";
       videoContainer.style.display = 'none';
       btn.textContent = "Descubrir";
     }
@@ -244,4 +247,3 @@
   </script>
 </body>
 </html>
-
