@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KAKAFE - Kopi Luwak Sostenible de Vietnam</title>
+  <style>
+    /* --- PALETA CROMÁTICA --- */
+    :root {
+      --marron-oscuro: #4A2E24;
+      --beige-kraft: #CBB99B;
+      --verde-premium: #0e5430;
+      --verde-eco: #1db96b;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      background-color: var(--beige-kraft);
+      color: var(--marron-oscuro);
+    }
+
+    header {
+      background-color: var(--beige-kraft);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--marron-oscuro);
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--marron-oscuro);
+      margin: 0 1rem;
+      font-weight: bold;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0%;
+      height: 2px;
+      background-color: var(--verde-premium);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* --- HERO --- */
+    .hero {
+      background-image: url('web/cafe_fondo.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      text-align: center;
+      padding: 8rem 2rem;
+      color: #fefcf9;
+      position: relative;
+    }
+
+    .hero-logo {
+      width: 120px;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .hero button {
+      background-color: var(--verde-premium);
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero button:hover {
+      background-color: var(--verde-eco);
+    }
+
+    /* --- SECCIONES INTERACTIVAS --- */
+    .info-section {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: var(--beige-kraft);
+      padding: 3rem 1rem;
+      text-align: center;
+      flex-wrap: wrap;
+    }
+
+    .info-item {
+      flex: 1;
+      min-width: 200px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .info-item:hover {
+      transform: scale(1.05);
+    }
+
+    .info-item img {
+      width: 60px;
+      margin-bottom: 1rem;
+    }
+
+    .info-text {
+      max-width: 800px;
+      margin: 2rem auto;
+      background-color: #fffdf8;
+      padding: 1.5rem;
+      border-left: 5px solid var(--verde-premium);
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      background-color: var(--marron-oscuro);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h2>
+      <img src="web/logo_web.png" alt="Logo símbolo KAKAFE" style="height:40px">
+      <img src="web/texto_logo.png" alt="Texto KAKAFE" style="height:35px">
+    </h2>
+    <nav>
+      <a href="#origen">Origen</a>
+      <a href="C:\Users\rmm02\OneDrive\Documentos\Uni\2025-2026\Q7\IAVA\proyecto\tienda.html">Productos</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="web/logo_web.png" alt="Logo KAKAFE" class="hero-logo" style="width:200px; margin-bottom:0;">
+    <h1>Kopi Luwak</h1>
+    <p>Sostenible de Vietnam</p>
+    <button id="btnDescubrir">Descubrir</button>
+
+    <!-- Contenedor del video local -->
+    <div id="videoContainer" style="display:none; margin-top:2rem; text-align:center;">
+      <video id="videoLocal" width="560" height="315" controls>
+        <source src="web/kakafe_add.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de video.
+      </video>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <div class="info-item" onclick="mostrarTexto('origen')">
+      <img src="web/viet.png" alt="Origen" style="width:100px; margin-bottom:0;">
+      <h3>Origen</h3>
+    </div>
+
+    <div class="info-item" onclick="mostrarTexto('proceso')">
+      <img src="web/cafe_bean.png" alt="Proceso">
+      <h3>Proceso</h3>
+    </div>
+
+    <div class="info-item" onclick="mostrarTexto('sostenibilidad')">
+      <img src="https://img.icons8.com/ios-filled/100/4A2E24/leaf.png" alt="Sostenibilidad">
+      <h3>Sostenibilidad</h3>
+    </div>
+  </section>
+
+  <div id="texto-origen" class="info-text">
+    <p>
+      Nuestro café proviene de las montañas del norte de Vietnam, donde las civetas viven en libertad y seleccionan naturalmente los granos más dulces. Cada taza refleja la autenticidad y el respeto por el entorno.
+    </p>
+  </div>
+
+  <div id="texto-proceso" class="info-text">
+    <p>
+      El proceso de Kopi Luwak se realiza con ética y sostenibilidad. Los granos son recolectados de manera natural, lavados cuidadosamente y tostados artesanalmente para preservar su sabor único.
+    </p>
+  </div>
+
+  <div id="texto-sostenibilidad" class="info-text">
+    <p>
+      Trabajamos con pequeñas comunidades vietnamitas, promoviendo prácticas responsables y comercio justo. Nuestro compromiso es con la naturaleza, las personas y la calidad del café.
+    </p>
+  </div>
+
+  <footer>
+    <p>© 2025 KAKAFE | Kopi Luwak Sostenible de Vietnam</p>
+  </footer>
+
+  <script>
+  // Mostrar texto interactivo
+  function mostrarTexto(seccion) {
+    const textos = document.querySelectorAll('.info-text');
+    textos.forEach(t => t.style.display = 'none');
+    document.getElementById(`texto-${seccion}`).style.display = 'block';
+  }
+
+  // --- Mostrar/ocultar video local ---
+  const btn = document.getElementById('btnDescubrir');
+  const videoContainer = document.getElementById('videoContainer');
+  const video = document.getElementById('videoLocal');
+
+  btn.addEventListener('click', () => {
+    if (videoContainer.style.display === 'none') {
+      videoContainer.style.display = 'block';
+      btn.textContent = "Ocultar video";
+      video.play();
+    } else {
+      video.pause();
+      video.currentTime = 0;
+      videoContainer.style.display = 'none';
+      btn.textContent = "Descubrir";
+    }
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tienda | KAKAFE</title>
+  <style>
+    :root {
+      --marron-oscuro: #4A2E24;
+      --beige-kraft: #CBB99B;
+      --verde-premium: #0e5430;
+      --verde-eco: #1db96b;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      background-color: var(--beige-kraft);
+      color: var(--marron-oscuro);
+    }
+
+    header {
+      background-color: var(--beige-kraft);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--marron-oscuro);
+    }
+
+    header img {
+      height: 40px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--marron-oscuro);
+      margin: 0 1rem;
+      font-weight: bold;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0%;
+      height: 2px;
+      background-color: var(--verde-premium);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 3rem;
+      color: var(--marron-oscuro);
+    }
+
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      padding: 3rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .producto {
+      background-color: #fffdf8;
+      border: 1px solid var(--marron-oscuro);
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .producto:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+
+    .producto img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+      margin-bottom: 1rem;
+    }
+
+    .producto h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .producto p {
+      margin: 0.3rem 0;
+    }
+
+    .precio {
+      font-weight: bold;
+      color: var(--verde-premium);
+      margin: 0.5rem 0;
+    }
+
+    .btn-comprar {
+      background-color: var(--verde-premium);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-comprar:hover {
+      background-color: var(--verde-eco);
+    }
+
+    footer {
+      background-color: var(--marron-oscuro);
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    .volver {
+      display: block;
+      text-align: center;
+      margin: 2rem auto;
+      color: var(--marron-oscuro);
+      font-weight: bold;
+      text-decoration: none;
+      border: 2px solid var(--marron-oscuro);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      width: fit-content;
+      transition: background-color 0.3s ease;
+    }
+
+    .volver:hover {
+      background-color: var(--verde-premium);
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h2>
+      <img src="web/logo_web.png" alt="Logo símbolo KAKAFE" style="height:40px">
+      <img src="web/texto_logo.png" alt="Texto KAKAFE" style="height:35px">
+    </h2>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="tienda.html">Tienda</a>
+    </nav>
+  </header>
+
+  <h1>Nuestra Tienda</h1>
+
+  <section class="productos">
+    <div class="producto">
+      <img src="web/molido_suave.png" alt="Café Molido Suave">
+      <h3>Café Molido Suave</h3>
+      <p>Equilibrado y aromático, perfecto para filtro o prensa.</p>
+      <p class="precio">€17,00</p>
+      <button class="btn-comprar">Comprar</button>
+    </div>
+    
+    <div class="producto">
+      <img src="web/molido_fuerte.png" alt="Café Molido Fuerte">
+      <h3>Café Molido Fuerte</h3>
+      <p>Intenso y con cuerpo, ideal para amantes del espresso.</p>
+      <p class="precio">€18,00</p>
+      <button class="btn-comprar">Comprar</button>
+    </div>
+
+    <div class="producto">
+      <img src="web/grano_suave.png" alt="Café en Grano Suave">
+      <h3>Café en Grano Suave</h3>
+      <p>Sutil y elegante, con notas florales y dulces.</p>
+      <p class="precio">€18,50</p>
+      <button class="btn-comprar">Comprar</button>
+    </div>
+
+    <div class="producto">
+      <img src="web/grano_fuerte.png" alt="Café en Grano Fuerte">
+      <h3>Café en Grano Fuerte</h3>
+      <p>Tuesta artesanalmente, sabor intenso con notas a cacao.</p>
+      <p class="precio">€19,00</p>
+      <button class="btn-comprar">Comprar</button>
+    </div>
+
+     <div class="producto">
+      <img src="web/set_cafe.jpg" alt="Set Conjunto Premium KAKAFE">
+      <h3>Set Conjunto Premium KAKAFE</h3>
+      <p>Incluye set de tazas tradicionales, prensa francesa, molinillo y cucharas de bambú de regalo.</p>
+      <p class="precio">€80,00</p>
+      <button class="btn-comprar">Comprar</button>
+    </div>
+
+    <div class="producto">
+      <img src="web/set_tazas.png" alt="Set Tazas KAKAFE">
+      <h3>Set Tazas KAKAFE</h3>
+      <p>Diseño moderno y minimalista en cerámica premium.</p>
+      <p class="precio">€25,00</p>
+      <button class="btn-comprar">Comprar</button>
+    </div>
+
+    <div class="producto">
+      <img src="web/tazas.png" alt="Set Tazas Tradicionales">
+      <h3>Set Tazas Tradicionales</h3>
+      <p>Inspiradas en la cultura vietnamita del café.</p>
+      <p class="precio">€28,00</p>
+      <button class="btn-comprar">Comprar</button>
+    </div>
+
+    <div class="producto">
+      <img src="web/molinillos.png" alt="Molinillo de Café">
+      <h3>Molinillos de Café</h3>
+      <p>Manual y ajustable, ideal para conservar el aroma.</p>
+      <p class="precio">€35,00</p>
+      <button class="btn-comprar">Comprar</button>
+    </div>
+
+    <div class="producto">
+      <img src="web/prensa_francesa.png" alt="Prensa Francesa">
+      <h3>Prensa Francesa</h3>
+      <p>Vidrio templado y acero inoxidable. Para café de filtro.</p>
+      <p class="precio">€32,00</p>
+      <button class="btn-comprar">Comprar</button>
+    </div>
+
+    <div class="producto">
+      <img src="web/termos.png" alt="Termo KAKAFE">
+      <h3>Termos KAKAFE</h3>
+      <p>Acero inoxidable, mantiene tu café caliente hasta 12h.</p>
+      <p class="precio">€22,00</p>
+      <button class="btn-comprar">Comprar</button>
+    </div>
+
+    <div class="producto">
+        <img src="web/conjunto_estilo_vida.png" alt="Set Estilo de Vida KAKAFE">
+        <h3>Set Estilo de Vida KAKAFE</h3>
+        <p>Incluye una tote bag, una libreta, una vela artesanal y un abanico. Ideal para los amantes del café y el diseño.</p>
+        <p class="precio">€40,00</p>
+        <button class="btn-comprar">Comprar</button>
+     </div>
+
+
+    <div class="producto">
+      <img src="web/totebag.png" alt="Tote Bag KAKAFE">
+      <h3>Tote Bags KAKAFE</h3>
+      <p>Algodón orgánico 100% reciclado, resistente y elegante.</p>
+      <p class="precio">€15,00</p>
+      <button class="btn-comprar">Comprar</button>
+    </div>
+
+    <div class="producto">
+      <img src="web/velas.png" alt="Vela Aromática KAKAFE">
+      <h3>Vela Aromática KAKAFE</h3>
+      <p>Aroma a café vietnamita con toques de vainilla natural.</p>
+      <p class="precio">€14,00</p>
+      <button class="btn-comprar">Comprar</button>
+    </div>
+
+    <div class="producto">
+      <img src="web/libretas.png" alt="Libreta KAKAFE">
+      <h3>Libreta KAKAFE</h3>
+      <p>Portada kraft con detalles grabados y papel reciclado.</p>
+      <p class="precio">€9,00</p>
+      <button class="btn-comprar">Comprar</button>
+    </div>
+
+    <div class="producto">
+      <img src="web/abanicos.png" alt="Abanico KAKAFE">
+      <h3>Abanico KAKAFE</h3>
+      <p>Hecho a mano con bambú y tela natural vietnamita.</p>
+      <p class="precio">€10,00</p>
+      <button class="btn-comprar">Comprar</button>
+    </div>
+  </section>
+
+  <a href="index.html" class="volver">← Volver al inicio</a>
+
+  <footer>
+    <p>© 2025 KAKAFE | Kopi Luwak Sostenible de Vietnam</p>
+  </footer>
+</body>
+</html>
