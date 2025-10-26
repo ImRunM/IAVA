@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KAKAFE - Kopi Luwak Sostenible de Vietnam</title>
-
-  <!-- FAVICON -->
-  <link rel="icon" type="image/png" href="web/logo_web.png">
+  <link rel="icon" type="image/png" href="web/logo_no_letras.png">
 
   <style>
     /* --- PALETA CROMÁTICA --- */
@@ -170,15 +168,15 @@
     <img src="web/logo_web.png" alt="Logo KAKAFE" class="hero-logo" style="width:200px; margin-bottom:0;">
     <h1>Kopi Luwak</h1>
     <p>Sostenible de Vietnam</p>
+    <button id="btnDescubrir">Descubrir</button>
 
-    <button id="btnToggleVideo">Ocultar video</button>
-
-    <!-- Contenedor del video de YouTube (visible por defecto) -->
-    <div id="videoContainer" style="margin-top:2rem; text-align:center;">
-      <iframe id="videoFrame" width="560" height="315" 
-        src="https://www.youtube.com/embed/BZ-5T2w6Oa8" 
-        title="KAKAFE Video Promocional" 
-        frameborder="0" 
+    <!-- Contenedor del video de YouTube -->
+    <div id="videoContainer" style="display:none; margin-top:2rem; text-align:center;">
+      <iframe id="videoYT" width="560" height="315"
+        src=""
+        title="KAKAFE video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
       </iframe>
     </div>
@@ -224,26 +222,30 @@
   </footer>
 
   <script>
-    // Mostrar texto interactivo
-    function mostrarTexto(seccion) {
-      const textos = document.querySelectorAll('.info-text');
-      textos.forEach(t => t.style.display = 'none');
-      document.getElementById(`texto-${seccion}`).style.display = 'block';
+  // Mostrar texto interactivo
+  function mostrarTexto(seccion) {
+    const textos = document.querySelectorAll('.info-text');
+    textos.forEach(t => t.style.display = 'none');
+    document.getElementById(`texto-${seccion}`).style.display = 'block';
+  }
+
+  // --- Mostrar/ocultar video de YouTube ---
+  const btn = document.getElementById('btnDescubrir');
+  const videoContainer = document.getElementById('videoContainer');
+  const video = document.getElementById('videoYT');
+
+  btn.addEventListener('click', () => {
+    if (videoContainer.style.display === 'none') {
+      // Enlace al video de YouTube
+      video.src = "https://www.youtube.com/embed/cy3NJ8Mg--g?autoplay=1";
+      videoContainer.style.display = 'block';
+      btn.textContent = "Ocultar video";
+    } else {
+      video.src = "";
+      videoContainer.style.display = 'none';
+      btn.textContent = "Descubrir";
     }
-
-    // --- Mostrar/ocultar video ---
-    const btnToggle = document.getElementById('btnToggleVideo');
-    const videoContainer = document.getElementById('videoContainer');
-
-    btnToggle.addEventListener('click', () => {
-      if (videoContainer.style.display === 'none') {
-        videoContainer.style.display = 'block';
-        btnToggle.textContent = "Ocultar video";
-      } else {
-        videoContainer.style.display = 'none';
-        btnToggle.textContent = "Descubrir";
-      }
-    });
+  });
   </script>
 </body>
 </html>
